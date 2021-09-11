@@ -32,7 +32,7 @@ app.post("/users", (request, response) => {
 
   users.push(userRegister);
 
-  return response.status(201).send();
+  return response.status(201).json(userRegister);
 });
 
 app.get("/todos", checksExistsUserAccount, (request, response) => {
