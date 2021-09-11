@@ -20,15 +20,14 @@ app.post("/users", (request, response) => {
   const userAlreadyExists = users.some((user) => user.username == username);
 
   if (userAlreadyExists) {
-    return response.status(401).json({ error: "User alredy existis!!" });
+    return response.status(400).json({ error: "User alredy existis!!" });
   }
 
   const userRegister = {
     id: uuidv4(),
     name,
     username,
-    todo: [],
-    created_at: new Date(),
+    todos: []
   };
 
   users.push(userRegister);
